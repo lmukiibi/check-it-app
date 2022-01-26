@@ -22,11 +22,6 @@ export default {
         return {
             inOut: true,
             posts: [],
-            post: {
-                id: '',                
-                state: '',
-                dateString: ''
-            },
             time: ''
         }
     },
@@ -43,7 +38,6 @@ export default {
             }
         },
         async getTime(state) {
-            console.log('getTime')
             const date = new Date()
             const text = "" +
             date.getDate() + '/' +
@@ -75,11 +69,6 @@ export default {
                 state: stateBefore,
                 dateString: dateString
             }
-            console.log('before fetching')
-            console.log(timeLog)
-
-            //const sendBack = await fetch('api/posts')
-
             
             await fetch('api/posts', {
                 method: 'POST',
@@ -88,7 +77,6 @@ export default {
                 },
                 body: JSON.stringify(timeLog),
             })
-            console.log('after fetching')
         },
         async changeStatus() {
             const stat = await fetch('api/inOut')
@@ -107,8 +95,6 @@ export default {
                 
                 return 'Success'
             }
-
-            console.log("no data changeStatus")
             return 'Failed';
         }, 
         
@@ -125,7 +111,7 @@ export default {
             } else {
                 this.text = 'OUT'            
             }
-        this.time = await lastTime
+        this.time = lastTime
          
     },
 
