@@ -1,28 +1,37 @@
 <template>
-    <div class="start">
-        <LogInBtn @btn-click="toggle" 
-        :color="inOut ? 'lightgreen' : 'pink'" class="button" :text="text" />
-        <label class="date">{{ time }}</label>
+    <div>
+        <div class="start">
+            <LogInBtn @btn-click="toggle" 
+            :color="inOut ? 'lightgreen' : 'pink'" class="button" :text="text"
+             v-cloak/>
+            <label class="date">{{ lastTime }}</label>
+        </div>
+        <div>
+            <SettingsBtn />
+        </div>
     </div>
 </template>
 
 <script>
 import LogInBtn from '../components/LogInBtn.vue'
+import SettingsBtn from '../components/SettingsBtn.vue'
 
 
 export default {
     name: 'Start',
     props: {
         color: String,
+        settings: Object
     },
     components: {
         LogInBtn,
+        SettingsBtn,
     },
     data() {
         return {
             inOut: true,
             posts: [],
-            time: ''
+            lastTime: 'Time',
         }
     },
     methods: {
@@ -46,7 +55,7 @@ export default {
             date.getHours() + ':' +
             date.getMinutes();
             await this.addTime(state, text)
-            this.time = text
+            this.lastTime = text
         },
         async getStatus() {
 
@@ -104,14 +113,14 @@ export default {
         const ans = await this.getStatus()
         this.posts = await this.getLatestLog()
         this.inOut = ans.status
-        const lastTime = Object.values(this.posts[this.posts.length - 1])[0] + ' '
+        this.lastTime = Object.values(this.posts[this.posts.length - 1])[0] + ' '
         + Object.values(this.posts[this.posts.length - 1])[1]
         if (this.inOut) {
                 this.text = 'IN'               
             } else {
                 this.text = 'OUT'            
             }
-        this.time = lastTime
+        this.time = this.lastTime
          
     },
 
@@ -130,5 +139,6 @@ export default {
     font-weight: bold;
     font-size: 30px;
 }
+
 
 </style>
