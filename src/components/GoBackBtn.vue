@@ -1,5 +1,5 @@
 <template>
-    <button @save-settings="$emit('save-settings', data)" class="myButton" @click="onSaveGoBack">Save / Go back</button>
+    <button class="myButton" @click="onClickGoBack">Go back</button>
 </template>
 
 <script>
@@ -8,17 +8,10 @@ export default {
     props: {
     },
     methods: {
-        onSaveGoBack() {
+        onClickGoBack() {
             this.$emit('go-back')
         }
-    },
-    data() {
-        return {
-            previousView: '/'
-        }
-    },
-    emits: ['save-settings']
-    
+    },    
 
 }
 </script>

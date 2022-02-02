@@ -1,5 +1,5 @@
 <template>
-    <button @click="$router.push('/SettingsView')" >
+    <button @click="$router.push(settingsPage)" >
             Settings
     </button>   
 </template>
@@ -7,14 +7,6 @@
 <script>
 export default {
     name: 'SettingsButton',
-    props: {
-        logs: []
-    },
-    methods: {
-        settingsView() {
-
-        }
-    },
     data() {
         return {
             settingsPage: '/SettingsView'

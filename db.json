@@ -3,10 +3,8 @@
     "status": true
   },
   "settings": {
-    "settings": {
-      "salary": "bye",
-      "aBreak": "bye"
-    }
+    "salary": "100",
+    "aBreak": "50"
   },
   "posts": [
     {
@@ -153,6 +151,46 @@
       "state": "OUT",
       "dateString": "28/1/2022 1:42",
       "id": 29
+    },
+    {
+      "state": "IN",
+      "dateString": "29/1/2022 2:25",
+      "id": 30
+    },
+    {
+      "state": "OUT",
+      "dateString": "29/1/2022 2:27",
+      "id": 31
+    },
+    {
+      "state": "IN",
+      "dateString": "29/1/2022 2:29",
+      "id": 32
+    },
+    {
+      "state": "OUT",
+      "dateString": "29/1/2022 2:29",
+      "id": 33
+    },
+    {
+      "state": "IN",
+      "dateString": "29/1/2022 2:29",
+      "id": 34
+    },
+    {
+      "state": "OUT",
+      "dateString": "29/1/2022 2:29",
+      "id": 35
+    },
+    {
+      "state": "IN",
+      "dateString": "29/1/2022 16:49",
+      "id": 36
+    },
+    {
+      "state": "OUT",
+      "dateString": "2/2/2022 4:5",
+      "id": 37
     }
   ]
 }

@@ -1,20 +1,17 @@
 <template>
-    <div>
-        <div class="start">
-            <LogInBtn @btn-click="toggle" 
-            :color="inOut ? 'lightgreen' : 'pink'" class="button" :text="text"
-             v-cloak/>
-            <label class="date">{{ lastTime }}</label>
-        </div>
-        <div>
-            <SettingsBtn />
-        </div>
+    <div class="start">
+        <LogInBtn @btn-click="toggle" 
+        :color="inOut ? 'lightgreen' : 'pink'" class="button" :text="text" />
+        <label class="date">{{ lastTime }}</label>
+        <SettingsBtn class="myButtons"/>
+        <LogBtn class="myButtons"/>
     </div>
 </template>
 
 <script>
 import LogInBtn from '../components/LogInBtn.vue'
 import SettingsBtn from '../components/SettingsBtn.vue'
+import LogBtn from '../components/LogButton.vue'
 
 
 export default {
@@ -26,6 +23,7 @@ export default {
     components: {
         LogInBtn,
         SettingsBtn,
+        LogBtn,
     },
     data() {
         return {
@@ -48,14 +46,14 @@ export default {
         },
         async getTime(state) {
             const date = new Date()
-            const text = "" +
+            const dateTime = "" +
             date.getDate() + '/' +
             (date.getMonth()+1) + '/' +
             date.getFullYear() + ' ' +
             date.getHours() + ':' +
             date.getMinutes();
-            await this.addTime(state, text)
-            this.lastTime = text
+            await this.addTime(state, dateTime)
+            this.lastTime = state + ' ' + dateTime
         },
         async getStatus() {
 
@@ -138,6 +136,14 @@ export default {
     margin: 20px;
     font-weight: bold;
     font-size: 30px;
+}
+.myButtons {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto;
 }
 
 

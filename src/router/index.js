@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Start from '../views/Start'
 import SettingsView from '../views/SettingsView'
+import LogView from '../views/LogView'
 
 const routes = [
     {
@@ -14,6 +15,11 @@ const routes = [
         name: 'SettingsView',
         component: SettingsView,
     },
+    {
+        path: '/LogView',
+        name: 'LogView',
+        component: LogView,
+    }
 ]
 
 const router = createRouter({
