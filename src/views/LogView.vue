@@ -1,6 +1,7 @@
 <template>
     <div>
         <h2>Log View</h2>
+        <GoBackBtn @go-back="goBack" />
         <ShowPosts />
         <GoBackBtn @go-back="goBack" />
     </div>

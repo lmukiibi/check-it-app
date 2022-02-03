@@ -1,6 +1,6 @@
 {
   "inOut": {
-    "status": true
+    "status": false
   },
   "settings": {
     "salary": "100",
@@ -191,6 +191,11 @@
       "state": "OUT",
       "dateString": "2/2/2022 4:5",
       "id": 37
+    },
+    {
+      "state": "IN",
+      "dateString": "3/2/2022 3:7",
+      "id": 38
     }
   ]
 }

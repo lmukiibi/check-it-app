@@ -1,7 +1,15 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <router-view></router-view>
+<div>
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <header>
+      <img src="$`logo`" alt="Logo">
+
+      //Add logo to the project
+
+    </header>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -11,6 +19,11 @@
 export default {
   name: 'App',
   components: {
+  },
+  data() {
+    return {
+      logoSource: './img/LOGO blk.png',
+    }
   }
 }
 </script>

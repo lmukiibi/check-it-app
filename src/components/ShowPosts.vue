@@ -37,6 +37,8 @@ export default {
         return {
             posts: [],
             handledLogs: [],
+            salary: 0,
+            aBreak: 0,
         }
     },
     methods: {
@@ -44,6 +46,12 @@ export default {
             const res = await fetch('api/posts')
             const data = await res.json()
             return data
+        },
+        async getSettings() {
+            const res = await fetch('api/settings')
+            const data = await res.json()
+            this.salary = data.salary
+            this.aBreak = data.aBreak
         },
         stringToArray(val) {
             var inDateNoChar = val.dateString.split('/')
@@ -57,6 +65,50 @@ export default {
 
             return inDateNoChar
         },
+        getWorkTime(inHr, outHr, inMin, outMin) {
+            let hourLess = false
+            let breakAdded = false
+            let resMin = outMin - inMin
+            if (resMin < 0) {
+                resMin += 60
+                hourLess = true
+            }
+            let resHr = outHr - inHr
+            if (hourLess) {
+                resHr--
+                hourLess = false
+            }
+            if (resHr < 0) {
+                resHr += 24
+            }
+            breakAdded
+            console.log('difference: ' + resHr + ':' + resMin)
+            if (resHr >= 3 && resMin >= 30) {
+                breakAdded = true
+                resMin -= this.aBreak   
+            }
+            if (resMin < 0) {
+                resMin += 60
+                hourLess = true
+            }
+            if (hourLess) {                   
+                resHr--
+                hourLess = false
+            }
+            if (resHr < 0) {
+                resHr += 24
+            }
+            return resHr + ':' + resMin
+        },
+        getMoneyEarned(time) {
+            console.log('time: ' + time)
+            const timeArr = time.split(':')
+            let timeInMinutes = parseFloat(timeArr[0]) * 60 + parseFloat(timeArr[1])
+            console.log('time in minutes: ' + timeInMinutes)
+            const money = this.salary * timeInMinutes / 60
+            console.log('my money returning: ' + money)
+            return money.toFixed(2)
+        },
         calculateValues(inValue, outValue, count) {
             inValue
             outValue
@@ -66,7 +118,9 @@ export default {
             const inArr = this.stringToArray(inValue)
             const outArr = this.stringToArray(outValue)
 
-
+            const diffTime = this.getWorkTime(inArr[3], outArr[3], inArr[4], outArr[4])
+            const money = this.getMoneyEarned(diffTime)
+            console.log('my money out: ' + money)
             const newInOutLog = {
 
                 id: count,
@@ -82,11 +136,16 @@ export default {
                 outValYr: outArr[2],
                 outValHr: outArr[3],
                 outValMn: outArr[4],
+                diffTime: diffTime,
+                money: money
             }
 
             
             this.handledLogs = this.handledLogs.concat(newInOutLog)
 
+
+            // A method that gets the settings, add it to the new InOutLog
+            // and in the LogCard component, add the total ammount of money nicelly.
 
         },
         
@@ -125,6 +184,9 @@ export default {
     },
     async created() {
         this.posts = await this.getAllLogs()
+        await this.getSettings()
+        console.log('Salary: ' + this.salary)
+        console.log('Break: ' + this.aBreak)
         this.addToHandleLog(this.posts)
     }
     
