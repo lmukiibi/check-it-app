@@ -29,11 +29,11 @@ export default {
             //difference: ''
         }
         
-    },
+    },/*
     meethods: {
         calcDiff() {
             console.log('in LogCard')
-            /*
+            
             const outHr = this.card.outValHr
             const outMin = this.card.outValMn
             const inHr = this.card.outValHr
@@ -43,12 +43,12 @@ export default {
             console.log(hr + ':' + min)
 
             return (hr + ':' + min)
-            */
+            
         }
-    },
+    },*/
     created() {
-        this.theCard = this.card
-        this.calcDiff()
+        //this.theCard = this.card
+        //this.calcDiff()
     }
 }
 </script>
