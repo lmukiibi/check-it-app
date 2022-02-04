@@ -82,7 +82,6 @@ export default {
                 resHr += 24
             }
             breakAdded
-            console.log('difference: ' + resHr + ':' + resMin)
             if (resHr >= 3 && resMin >= 30) {
                 breakAdded = true
                 resMin -= this.aBreak   
@@ -101,26 +100,20 @@ export default {
             return resHr + ':' + resMin
         },
         getMoneyEarned(time) {
-            console.log('time: ' + time)
             const timeArr = time.split(':')
             let timeInMinutes = parseFloat(timeArr[0]) * 60 + parseFloat(timeArr[1])
-            console.log('time in minutes: ' + timeInMinutes)
             const money = this.salary * timeInMinutes / 60
-            console.log('my money returning: ' + money)
             return money.toFixed(2)
         },
         calculateValues(inValue, outValue, count) {
             inValue
             outValue
-            console.log('We are in the calcValue method: ' 
-            + inValue.state + ', ' + outValue.state)
 
             const inArr = this.stringToArray(inValue)
             const outArr = this.stringToArray(outValue)
 
             const diffTime = this.getWorkTime(inArr[3], outArr[3], inArr[4], outArr[4])
             const money = this.getMoneyEarned(diffTime)
-            console.log('my money out: ' + money)
             const newInOutLog = {
 
                 id: count,
@@ -145,39 +138,32 @@ export default {
 
 
             // A method that gets the settings, add it to the new InOutLog
-            // and in the LogCard component, add the total ammount of money nicelly.
+            // and in the LogCard component,
+            // add the total ammount of money nicelly.
 
         },
         
         addToHandleLog(pos) {
 
             var cou = 1
-            var firstOUT = false
+            var firstOUT = false 
             if (pos.length >= 2) {
                 for (let i = 0; i < (pos.length); i++) {
-                    console.log('Array slot: ' + (pos[i].id - 1) + ' step ' + (i+1))
-                    console.log('state: ' + pos[i].state)
                     
                     if (pos[0].state === 'OUT' && i === 0) {
-                        console.log('First is an OUT')
                         firstOUT = true
-                        console.log(String(firstOUT))
                     }
                     else if (i === (pos.length - 1)) {
-                        console.log('Last is an IN')
+                        firstOUT
                     }
                     else {
-                        console.log('In the logic part. Id: ' + pos[i].id + ', state: '
-                        + pos[i].state)
                         if ((i + 1) < pos.length) {
-                            console.log('We are in')
                             this.calculateValues(pos[i], pos[(i + 1)], (cou))
                             i++
                             cou++
                         }
 
                     }
-                    console.log(' ')
                 }
             }
         }
@@ -185,8 +171,6 @@ export default {
     async created() {
         this.posts = await this.getAllLogs()
         await this.getSettings()
-        console.log('Salary: ' + this.salary)
-        console.log('Break: ' + this.aBreak)
         this.addToHandleLog(this.posts)
     }
     

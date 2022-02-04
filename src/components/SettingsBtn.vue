@@ -1,5 +1,5 @@
 <template>
-    <button @click="$router.push(settingsPage)" >
+    <button class="mySettingsBtn" @click="$router.push(settingsPage)" >
             Settings
     </button>   
 </template>
@@ -17,5 +17,9 @@ export default {
 </script>
 
 <style>
-
+.mySettingsBtn {
+    
+    border-radius: 20%;
+    background-color: white;
+}
 </style>

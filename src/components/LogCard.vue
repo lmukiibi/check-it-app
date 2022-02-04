@@ -4,8 +4,8 @@
             <h3><div class="containLog">
                 <div class="itemId">{{ card.id }}</div>
                 <div class="itemDate">{{ card.inValState }}:
-                {{ card.inValYr }}/{{ card.inValMt }}/{{ card.inValDy }}</div>
-                    <div class="itemTime"> {{ card.inValHr }}:{{ card.inValMn }} </div>
+                {{ card.inValYr }}/{{ card.inValMt }}/{{ card.inValDy }}
+                    {{ card.inValHr }}:{{ card.inValMn }} </div>
                     </div>
                 </h3>
                 <h3>{{ card.outValState }}:

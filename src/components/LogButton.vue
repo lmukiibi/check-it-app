@@ -1,5 +1,5 @@
 <template>
-    <button @click="$router.push(logView)">Logs</button>
+    <button class="myLogBtn" @click="$router.push(logView)">Logs</button>
 </template>
 
 <script>
@@ -15,5 +15,10 @@ export default {
 </script>
 
 <style scoped>
+.myLogBtn {
+    
+    border-radius: 20%;
+    background-color: white;
+}
 
 </style>

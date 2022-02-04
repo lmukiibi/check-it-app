@@ -22,5 +22,7 @@ export default {
     margin: 10px auto;
     align-items: center;
     justify-content: center;
+    border-radius: 20%;
+    background-color: white;
 }
 </style>

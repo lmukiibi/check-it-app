@@ -3,26 +3,32 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <header>
-      <img src="$`logo`" alt="Logo">
-
-      //Add logo to the project
+      <div>
+      <img class="myLogo" src="./assets/LOGOblk.png" alt="Logo">
+      <h4>Check It</h4>
+      </div>
+      <!--Add logo to the project-->
 
     </header>
     <router-view></router-view>
+    <footer>
+        <p>Vividlee Studio &copy; 2022</p>
+    </footer>
   </div>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
 //import Start from './components/Start.vue'
+//import logoSourse from './assets/LOGOblk.png'
 
 export default {
+
   name: 'App',
   components: {
   },
   data() {
     return {
-      logoSource: './img/LOGO blk.png',
     }
   }
 }
@@ -36,7 +42,20 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.myLogo {
+  width: 60px;
+  height: 60px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(211, 211, 211);
+  color: white;
+  margin: 0px auto;
+  border-radius: 450%;
 }
 
 </style>

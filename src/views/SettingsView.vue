@@ -54,7 +54,6 @@ export default {
         async getSettings() {
             const res = await fetch('api/settings')
             const data = await res.json()
-            console.log(data)
 
             this.salary = data.salary
             this.aBreak = data.aBreak

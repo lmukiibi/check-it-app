@@ -3,8 +3,8 @@
     "status": false
   },
   "settings": {
-    "salary": "100",
-    "aBreak": "50"
+    "salary": "189",
+    "aBreak": "30"
   },
   "posts": [
     {
@@ -196,6 +196,16 @@
       "state": "IN",
       "dateString": "3/2/2022 3:7",
       "id": 38
+    },
+    {
+      "state": "OUT",
+      "dateString": "3/2/2022 20:24",
+      "id": 39
+    },
+    {
+      "state": "IN",
+      "dateString": "3/2/2022 21:3",
+      "id": 40
     }
   ]
 }
