@@ -226,6 +226,11 @@
       "state": "IN",
       "dateString": "5/2/2022 13:25",
       "id": 44
+    },
+    {
+      "state": "OUT",
+      "dateString": "6/2/2022 2:16",
+      "id": 45
     }
   ]
 }

@@ -15,10 +15,9 @@
             </h3>
         </div>
         -->
+        <label>{{ earnedMonthly }}</label>
         <div :key=card.id v-for="card in handledLogs">
             <LogCard :card="card" />
-
-
         </div>
     </div>
 </template>
@@ -39,6 +38,10 @@ export default {
             handledLogs: [],
             salary: 0,
             aBreak: 0,
+            month: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            monthStr: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 
+            'Sep', 'Oct', 'Nov', 'Dec'],
+            earnedMonthly: [],
         }
     },
     methods: {
@@ -133,6 +136,7 @@ export default {
                 money: money
             }
 
+            this.month[newInOutLog.inValMt - 1] += parseInt(newInOutLog.money)
             
             this.handledLogs = this.handledLogs.concat(newInOutLog)
 
@@ -166,12 +170,21 @@ export default {
                     }
                 }
             }
-        }
+        },
+        getMyEarnings(monthStr, monthEarn) {
+            for (let i = 0; i < 12; i++) {
+                if (monthEarn[i] > 0) {
+                    this.earnedMonthly += monthStr[i] + ': ' + monthEarn[i] + '. '
+                }
+            }
+            console.log(this.earnedMonthly)
+        },
     },
     async created() {
         this.posts = await this.getAllLogs()
         await this.getSettings()
         this.addToHandleLog(this.posts)
+        this.getMyEarnings(this.monthStr, this.month)
     }
     
 }

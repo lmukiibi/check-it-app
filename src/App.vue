@@ -5,7 +5,7 @@
     <header>
       <div>
       <img class="myLogo" src="./assets/LOGOblk.png" alt="Logo">
-      <h4>Check It</h4>
+      <h2>Check It</h2>
       </div>
       <!--Add logo to the project-->
 
@@ -50,12 +50,12 @@ export default {
 }
 
 footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   background-color: rgb(211, 211, 211);
   color: white;
-  margin: 0px auto;
-  border-radius: 450%;
+  padding: 15px;
+  margin: 10px 0px;
 }
 
 </style>
