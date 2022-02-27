@@ -2,15 +2,15 @@
     <div>
         <h2>Settings View</h2>
         <div class="paddings">
-            <label>Salary: </label>
+            <span>Salary: </span>
             <input v-model="salary" type="text" placeholder="150" />
-            <label> - money</label>
+            <span> - money</span>
         </div>
-        <div class="paddings">
-            <label>Break: </label>
+        <!-- <div class="paddings">
+            <span>Break: </span>
             <input v-model="aBreak" type="text" placeholder="60" />
-            <label> - minutes</label>
-        </div>
+            <span> - minutes</span>
+        </div> -->
             <GoBackBtn @go-back="onSubmit" />
     </div>
 </template>

@@ -54,8 +54,8 @@ footer {
   bottom: 0;
   background-color: rgb(211, 211, 211);
   color: white;
-  padding: 15px;
-  margin: 10px 0px;
+  padding: 15px 0 100px 0;
+  margin-top: 10px;
 }
 
 </style>
